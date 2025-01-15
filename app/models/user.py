@@ -20,8 +20,8 @@ class User(db.Model):
     about_me = db.Column(db.String(255))
     number_of_games = db.Column(db.Integer, default=0)
     number_of_reviews = db.Column(db.Integer, default=0)
-    created_at = db.Column(db.DateTime, default=datetime.utcnow, nullable=True)
-    updated_at = db.Column(db.DateTime, default=datetime.utcnow, onupdate=datetime.utcnow, nullable=True)
+    created_at = db.Column(db.DateTime, default=db.func.now(), nullable=True)
+    updated_at = db.Column(db.DateTime, default=db.func.now(), onupdate=db.func.now(), nullable=True)
 
     # Many-to-Many Relationship
     games = db.relationship('Game', secondary=user_game_association, back_populates='users')
