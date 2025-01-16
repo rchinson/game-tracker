@@ -5,7 +5,7 @@ from sqlalchemy.sql import text
 def seed_games():
     game1 = Game(
         user_id=1,
-        creator_id=1,
+
         title='Fortnite',
         image='https://wallpapers.com/images/hd/fortnite-1920x1080-hd-cvavgntkwzkn72rg.jpg',
         description='A free-for-all survival on a big map!',
@@ -16,7 +16,7 @@ def seed_games():
     )
     game2 = Game(
         user_id=2,
-        creator_id=1,
+
         title='Minecraft',
         image='https://www.dexerto.com/cdn-image/wp-content/uploads/2023/08/04/minecraft-bedrock-thumb.jpg',
         description='Build a base with solo or with a friend to survive the night!',
@@ -26,7 +26,7 @@ def seed_games():
     )
     game3 = Game(
         user_id=3,
-        creator_id=1,
+
         title='Rocket League',
         image='https://www.rocketleague.com/images/keyart/rl_evergreen.jpg',
         description='Fly through the air to score more goals than your opponent!',
@@ -36,7 +36,7 @@ def seed_games():
     )
     game4 = Game(
         user_id=1,
-        creator_id=1,
+
         title='Halo',
         image='https://wpassets.halowaypoint.com/wp-content/2021/12/HaloInfinite_CampaignKeyArt_CLEAN_1920x1080.jpg',
         description='Play as Master Chief to defeat the Covenant!',
