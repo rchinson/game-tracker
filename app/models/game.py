@@ -23,7 +23,8 @@ class Game(db.Model):
     updated_at = db.Column(db.DateTime, default=datetime.utcnow, onupdate=datetime.utcnow, nullable=True)
 
     # One-to-Many Relationship
-    # reviews = db.relationship('Review', back_populates='game', cascade="all, delete-orphan")
+    reviews = db.relationship('Review', back_populates='game', cascade="all, delete-orphan")
+    screenshots = db.relationship('Screenshot', back_populates='game', cascade="all, delete-orphan")
 
     # Many-to-Many Relationship
     users = db.relationship('User', secondary=user_game_association, back_populates='games')

@@ -1,6 +1,3 @@
-# fix
-
-
 from app.models import db, Review, environment, SCHEMA
 from sqlalchemy.sql import text
 
@@ -28,28 +25,28 @@ def seed_reviews():
         starRating=3
     )
     review4 = Review(
-        user_id=4,
+        user_id=1,
         game_id=4,
         title = 'Not good',
         body='I really did not like this game!',
         starRating=1
     )
     review5 = Review(
-        user_id=1,
+        user_id=2,
         game_id=2,
         title = 'I like it!',
         body='I like to play with my friends.',
         starRating=4
     )
     review6 = Review(
-        user_id=2,
+        user_id=3,
         game_id=3,
         title = 'Flying through the air',
         body='Its like soccer but with a rocket car!',
         starRating=4
     )
     review7 = Review(
-        user_id=3,
+        user_id=1,
         game_id=4,
         title = 'Old but good',
         body='An old game but still fun to play.',

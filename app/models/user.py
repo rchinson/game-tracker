@@ -25,8 +25,9 @@ class User(db.Model, UserMixin):
     updated_at = db.Column(db.DateTime, default=db.func.now(), onupdate=db.func.now(), nullable=True)
 
     # One-to-Many Relationship
-    # reviews = db.relationship('Review', back_populates='user', cascade="all, delete-orphan")
-
+    reviews = db.relationship('Review', back_populates='user', cascade="all, delete-orphan")
+    screenshots = db.relationship('Screenshot', back_populates='user', cascade="all, delete-orphan")
+    
     # Many-to-Many Relationship
     games = db.relationship('Game', secondary=user_game_association, back_populates='users')
 

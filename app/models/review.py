@@ -38,7 +38,7 @@ class Review(db.Model):
                 'id': self.user.id,
                 'username': self.user.username
             } if self.user else None,
-            'restaurant': {
+            'game': {
                 'id': self.game.id,
                 'image': self.game.image,
                 'genre': self.game.genre,
