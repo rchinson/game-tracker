@@ -1,8 +1,8 @@
 """empty message
 
-Revision ID: 5af04cbc8e94
+Revision ID: 5e5801b2f2ba
 Revises: 
-Create Date: 2025-01-16 22:31:07.273284
+Create Date: 2025-01-16 23:04:25.332624
 
 """
 from alembic import op
@@ -14,7 +14,7 @@ SCHEMA = os.environ.get("SCHEMA")
 
 
 # revision identifiers, used by Alembic.
-revision = '5af04cbc8e94'
+revision = '5e5801b2f2ba'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -41,7 +41,7 @@ def upgrade():
     )
     if environment == "production":
         op.execute(f"ALTER TABLE users SET SCHEMA {SCHEMA};")
-    
+
     op.create_table('games',
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('user_id', sa.Integer(), nullable=False),
@@ -61,7 +61,18 @@ def upgrade():
     if environment == "production":
         op.execute(f"ALTER TABLE games SET SCHEMA {SCHEMA};")
 
-    op.create_table('reviews',
+    op.create_table('user_game_association',
+    sa.Column('user_id', sa.Integer(), nullable=False),
+    sa.Column('game_id', sa.Integer(), nullable=False),
+    sa.ForeignKeyConstraint(['game_id'], ['games.id'], ),
+    sa.ForeignKeyConstraint(['user_id'], ['users.id'], ),
+    sa.PrimaryKeyConstraint('user_id', 'game_id')
+    )
+    if environment == "production":
+        op.execute(f"ALTER TABLE user_game_association SET SCHEMA {SCHEMA};")
+
+
+        op.create_table('reviews',
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('user_id', sa.Integer(), nullable=False),
     sa.Column('game_id', sa.Integer(), nullable=False),
@@ -90,16 +101,6 @@ def upgrade():
     )
     if environment == "production":
         op.execute(f"ALTER TABLE screenshots SET SCHEMA {SCHEMA};")
-
-    op.create_table('user_game_association',
-    sa.Column('user_id', sa.Integer(), nullable=False),
-    sa.Column('game_id', sa.Integer(), nullable=False),
-    sa.ForeignKeyConstraint(['game_id'], ['games.id'], ),
-    sa.ForeignKeyConstraint(['user_id'], ['users.id'], ),
-    sa.PrimaryKeyConstraint('user_id', 'game_id')
-    )
-    if environment == "production":
-        op.execute(f"ALTER TABLE user_game_association SET SCHEMA {SCHEMA};")
 
     # ### end Alembic commands ###
 
