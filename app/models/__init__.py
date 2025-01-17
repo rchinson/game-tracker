@@ -4,4 +4,4 @@ from .game import Game
 from .review import Review
 from .screenshot import Screenshot
 from .db import environment, SCHEMA
-from .db import user_game_association
+from .user_game_association import user_game_association
