@@ -1,7 +1,7 @@
 from .db import db, environment, SCHEMA, add_prefix_for_prod
 from datetime import datetime
 from werkzeug.security import generate_password_hash, check_password_hash
-from .db import user_game_association
+from .user_game_association import user_game_association
 from flask_login import UserMixin
 
 
