@@ -42,6 +42,5 @@ class Game(db.Model):
             'price': self.price,
             'created_at': self.created_at,
             'updated_at': self.updated_at,
-            'users': [user.to_dict() for user in self.users]  # Include related users
         }
 

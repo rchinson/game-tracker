@@ -57,7 +57,6 @@ class User(db.Model, UserMixin):
             'number_of_reviews': self.number_of_reviews,
             'created_at': self.created_at,
             'updated_at': self.updated_at,
-            'games': [game.to_dict() for game in self.games]  # Include related games
         }
 
 
