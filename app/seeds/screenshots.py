@@ -40,8 +40,6 @@ def seed_screenshots():
         image_url = 'https://www.newgamenetwork.com/images/uploads/gallery/Minecraft/minecraft_05.jpg',
         description='Lots of torches',
     )
-
-
     screenshot7 = Screenshot(
         user_id=2,
         game_id=3,
