@@ -31,7 +31,6 @@ class Game(db.Model):
     def to_dict(self):
         return {
             'id': self.id,
-            'user_id': self.user_id,
             'creator_id': self.creator_id,
             'title': self.title,
             'image': self.image,
