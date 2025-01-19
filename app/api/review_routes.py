@@ -7,7 +7,7 @@ review_routes = Blueprint('reviews', __name__)
 @review_routes.route('/')
 def get_reviews():
     """
-    Query for all reviews and returns them in a list of review dictionaries.
+    Get all reviews.
     """
     reviews = Review.query.all()
     return {'reviews': [review.to_dict() for review in reviews]}
@@ -15,7 +15,7 @@ def get_reviews():
 @review_routes.route('/<int:id>')
 def get_review(id):
     """
-    Query for a review by id and returns that review in a dictionary.
+    Get a review by id.
     """
     review = Review.query.get(id)
     if not review:
@@ -26,7 +26,7 @@ def get_review(id):
 @login_required
 def create_review():
     """
-    Create a new review and returns the newly created review in a dictionary.
+    Create a new review.
     """
     data = request.get_json()
     game = Game.query.get(data.get('game_id'))
@@ -48,7 +48,7 @@ def create_review():
 @login_required
 def update_review(id):
     """
-    Update an existing review and return the updated review in a dictionary.
+    Update an existing review.
     """
     review = Review.query.get(id)
     if not review:
@@ -69,7 +69,7 @@ def update_review(id):
 @login_required
 def delete_review(id):
     """
-    Delete an existing review and return a success message.
+    Delete an existing review.
     """
     review = Review.query.get(id)
     if not review:

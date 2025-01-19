@@ -7,7 +7,7 @@ screenshot_routes = Blueprint('screenshots', __name__)
 @screenshot_routes.route('/')
 def get_screenshots():
     """
-    Query for all screenshots and returns them in a list of screenshot dictionaries.
+    Get all screenshots.
     """
     screenshots = Screenshot.query.all()
     return {'screenshots': [screenshot.to_dict() for screenshot in screenshots]}
@@ -15,7 +15,7 @@ def get_screenshots():
 @screenshot_routes.route('/<int:id>')
 def get_screenshot(id):
     """
-    Query for a screenshot by id and returns that screenshot in a dictionary.
+    Get a screenshot by id.
     """
     screenshot = Screenshot.query.get(id)
     if not screenshot:
@@ -26,7 +26,7 @@ def get_screenshot(id):
 @login_required
 def create_screenshot():
     """
-    Create a new screenshot and returns the newly created screenshot in a dictionary.
+    Create a new screenshot.
     """
     data = request.get_json()
     game = Game.query.get(data.get('game_id'))
@@ -47,7 +47,7 @@ def create_screenshot():
 @login_required
 def update_screenshot(id):
     """
-    Update an existing screenshot and return the updated screenshot in a dictionary.
+    Update an existing screenshot.
     """
     screenshot = Screenshot.query.get(id)
     if not screenshot:
@@ -67,7 +67,7 @@ def update_screenshot(id):
 @login_required
 def delete_screenshot(id):
     """
-    Delete an existing screenshot and return a success message.
+    Delete an existing screenshot.
     """
     screenshot = Screenshot.query.get(id)
     if not screenshot:

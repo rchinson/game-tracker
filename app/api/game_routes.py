@@ -7,7 +7,7 @@ game_routes = Blueprint('games', __name__)
 @game_routes.route('/')
 def get_games():
     """
-    Query for all games and returns them in a list of game dictionaries.
+    Get all games.
     """
     games = Game.query.all()
     return {'games': [game.to_dict() for game in games]}
@@ -15,7 +15,7 @@ def get_games():
 @game_routes.route('/<int:id>')
 def get_game(id):
     """
-    Query for a game by id and returns that game in a dictionary.
+    Get a game by id.
     """
     game = Game.query.get(id)
     if not game:
@@ -26,7 +26,7 @@ def get_game(id):
 @login_required
 def create_game():
     """
-    Create a new game and returns the newly created game in a dictionary.
+    Create a new game.
     """
     data = request.get_json()
     new_game = Game(
@@ -46,7 +46,7 @@ def create_game():
 @login_required
 def update_game(id):
     """
-    Update an existing game and return the updated game in a dictionary.
+    Update an existing game.
     """
     game = Game.query.get(id)
     if not game:
@@ -70,7 +70,7 @@ def update_game(id):
 @login_required
 def delete_game(id):
     """
-    Delete an existing game and return a success message.
+    Delete an existing game.
     """
     game = Game.query.get(id)
     if not game:
