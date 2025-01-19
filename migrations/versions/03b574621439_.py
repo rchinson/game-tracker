@@ -1,21 +1,16 @@
 """empty message
 
-Revision ID: c138710f216d
+Revision ID: 03b574621439
 Revises: 
-Create Date: 2025-01-17 14:23:09.460764
+Create Date: 2025-01-18 13:56:01.333429
 
 """
 from alembic import op
 import sqlalchemy as sa
 
 
-import os
-environment = os.getenv("FLASK_ENV")
-SCHEMA = os.environ.get("SCHEMA")
-
-
 # revision identifiers, used by Alembic.
-revision = 'c138710f216d'
+revision = '03b574621439'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -26,8 +21,8 @@ def upgrade():
     op.create_table('users',
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('username', sa.String(length=80), nullable=False),
-    sa.Column('first_name', sa.String(length=80), nullable=False),
-    sa.Column('last_name', sa.String(length=80), nullable=False),
+    sa.Column('first_name', sa.String(length=80), nullable=True),
+    sa.Column('last_name', sa.String(length=80), nullable=True),
     sa.Column('email', sa.String(length=120), nullable=False),
     sa.Column('hashed_password', sa.String(length=255), nullable=False),
     sa.Column('avatar', sa.String(length=255), nullable=True),
@@ -40,9 +35,6 @@ def upgrade():
     sa.UniqueConstraint('email'),
     sa.UniqueConstraint('username')
     )
-    if environment == "production":
-        op.execute(f"ALTER TABLE users SET SCHEMA {SCHEMA};")
-
     op.create_table('games',
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('creator_id', sa.Integer(), nullable=True),
@@ -57,9 +49,6 @@ def upgrade():
     sa.ForeignKeyConstraint(['creator_id'], ['users.id'], ),
     sa.PrimaryKeyConstraint('id')
     )
-    if environment == "production":
-        op.execute(f"ALTER TABLE games SET SCHEMA {SCHEMA};")
-
     op.create_table('reviews',
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('user_id', sa.Integer(), nullable=False),
@@ -73,9 +62,6 @@ def upgrade():
     sa.ForeignKeyConstraint(['user_id'], ['users.id'], ),
     sa.PrimaryKeyConstraint('id')
     )
-    if environment == "production":
-        op.execute(f"ALTER TABLE reviews SET SCHEMA {SCHEMA};")
-
     op.create_table('screenshots',
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('user_id', sa.Integer(), nullable=False),
@@ -87,9 +73,6 @@ def upgrade():
     sa.ForeignKeyConstraint(['user_id'], ['users.id'], ),
     sa.PrimaryKeyConstraint('id')
     )
-    if environment == "production":
-        op.execute(f"ALTER TABLE screenshots SET SCHEMA {SCHEMA};")
-
     op.create_table('user_game_association',
     sa.Column('user_id', sa.Integer(), nullable=False),
     sa.Column('game_id', sa.Integer(), nullable=False),
@@ -97,9 +80,6 @@ def upgrade():
     sa.ForeignKeyConstraint(['user_id'], ['users.id'], ),
     sa.PrimaryKeyConstraint('user_id', 'game_id')
     )
-    if environment == "production":
-        op.execute(f"ALTER TABLE user_game_association SET SCHEMA {SCHEMA};")
-
     # ### end Alembic commands ###
 
 
