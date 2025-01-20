@@ -6,9 +6,17 @@ import {
 } from "redux";
 import thunk from "redux-thunk";
 import sessionReducer from "./session";
+import gamesReducer from "./games";
+import screenshotsReducer from "./screenshots";
+import reviewsReducer from "./reviews";
+import userGamesReducer from "./usergames";
 
 const rootReducer = combineReducers({
   session: sessionReducer,
+  games: gamesReducer,
+  screenshots: screenshotsReducer,
+  reviews: reviewsReducer,
+  userGames: userGamesReducer
 });
 
 let enhancer;
