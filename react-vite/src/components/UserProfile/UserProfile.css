@@ -97,3 +97,46 @@
   justify-content: center;
   color: #888;
 }
+
+
+.edit-profile-button {
+  margin-top: 10px;
+  padding: 10px 15px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.edit-profile-button:hover {
+  background-color: #45a049;
+  transform: scale(1.05);
+}
+
+.edit-profile-button:active {
+  background-color: #3e8e41;
+}
+
+.delete-profile-button {
+  margin-top: 10px;
+  padding: 10px 15px;
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.delete-profile-button:hover {
+  background-color: #c82333;
+  transform: scale(1.05);
+}
+
+.delete-profile-button:active {
+  background-color: #a71d2a;
+}

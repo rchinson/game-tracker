@@ -141,3 +141,47 @@ form .cancel-button {
 form .cancel-button:hover {
   background-color: #c82333;
 }
+
+
+.new-game-button {
+  margin-bottom: 20px;
+  padding: 10px 20px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.new-game-button:hover {
+  background-color: #45a049;
+  transform: scale(1.05);
+}
+
+.new-game-button:active {
+  background-color: #3e8e41;
+}
+
+
+.add-to-library-button {
+  margin-top: 10px;
+  padding: 8px 12px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.add-to-library-button:hover {
+  background-color: #0056b3;
+  transform: scale(1.05);
+}
+
+.add-to-library-button:active {
+  background-color: #003f7f;
+}

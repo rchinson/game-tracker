@@ -1,0 +1,59 @@
+.add-screenshot-form {
+  max-width: 500px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.add-screenshot-form h3 {
+  margin-bottom: 15px;
+  font-size: 1.5rem;
+  color: #333;
+  text-align: center;
+}
+
+.add-screenshot-form input,
+.add-screenshot-form textarea,
+.add-screenshot-form button {
+  width: 100%;
+  margin-bottom: 15px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+  box-sizing: border-box;
+}
+
+.add-screenshot-form input:focus,
+.add-screenshot-form textarea:focus,
+.add-screenshot-form button:focus {
+  border-color: #007bff;
+  outline: none;
+  box-shadow: 0 0 4px rgba(0, 123, 255, 0.5);
+}
+
+.add-screenshot-form textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+.add-screenshot-form button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.add-screenshot-form button:hover {
+  background-color: #0056b3;
+  transform: scale(1.05);
+}
+
+.add-screenshot-form button:active {
+  background-color: #003f7f;
+}

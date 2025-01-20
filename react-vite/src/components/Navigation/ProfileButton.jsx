@@ -50,10 +50,10 @@ function ProfileButton() {
   }, [showMenu]);
 
   // Navigate to UserProfile with active section
-  const navigateToSection = (section) => {
-    navigate(`/user/${user.id}?section=${section}`);
-    closeMenu();
-  };
+  // const navigateToSection = (section) => {
+  //   navigate(`/user/${user.id}?section=${section}`);
+  //   closeMenu();
+  // };
 
   return (
     <div className="profile-button-container">
@@ -72,25 +72,25 @@ function ProfileButton() {
               </li>
               <button
                 className="dropdown-item"
-                onClick={() => navigateToSection("profile")}
+                onClick={() => navigate(`/user/${user.id}`)}
               >
                 Profile Overview
               </button>
               <button
                 className="dropdown-item"
-                onClick={() => navigateToSection("games")}
+                onClick={() => navigate(`/${user.id}/games`)}
               >
                 My Games
               </button>
               <button
                 className="dropdown-item"
-                onClick={() => navigateToSection("reviews")}
+                onClick={() => navigate("/reviews")}
               >
                 My Reviews
               </button>
               <button
                 className="dropdown-item"
-                onClick={() => navigateToSection("screenshots")}
+                onClick={() => navigate("/screenshots")}
               >
                 My Screenshots
               </button>

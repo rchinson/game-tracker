@@ -46,3 +46,24 @@
 .game-details-info strong {
   color: #333;
 }
+
+.view-screenshots-button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.view-screenshots-button:hover {
+  background-color: #0056b3;
+  transform: scale(1.05);
+}
+
+.view-screenshots-button:active {
+  background-color: #003f7f;
+}

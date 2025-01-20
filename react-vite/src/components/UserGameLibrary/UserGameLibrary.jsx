@@ -1,6 +1,9 @@
 import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { thunkFetchUserGamesLibrary } from "../../redux/usergames";
+import {
+  thunkFetchUserGamesLibrary,
+  thunkRemoveGameFromLibrary,
+} from "../../redux/usergames";
 import "./UserGameLibrary.css";
 
 const UserGameLibrary = () => {
@@ -26,6 +29,15 @@ const UserGameLibrary = () => {
     }
   }, [dispatch, currentUser]);
 
+  const handleRemoveFromLibrary = async (gameId) => {
+    try {
+      await dispatch(thunkRemoveGameFromLibrary(gameId));
+      alert("Game removed from your library.");
+    } catch (err) {
+      alert(err.message);
+    }
+  };
+
   if (!currentUser) {
     return <div>Please log in to view your game library.</div>;
   }
@@ -40,20 +52,22 @@ const UserGameLibrary = () => {
 
   return (
     <div className="user-game-library">
-      <h2>{`${currentUser.first_name}'s Game Library`}</h2>
+      <h2>{`${currentUser.username}'s Game Library`}</h2>
       {userGames.length > 0 ? (
         <div className="games-grid">
           {userGames.map((game) => (
             <div key={game.id} className="game-card">
-              <img
-                src={game.image}
-                alt={game.title}
-                className="game-image"
-              />
+              <img src={game.image} alt={game.title} className="game-image" />
               <h3>{game.title}</h3>
               <p>{game.genre}</p>
               <p>{game.platform}</p>
               <p>${game.price}</p>
+              <button
+                onClick={() => handleRemoveFromLibrary(game.id)}
+                className="remove-from-library-button"
+              >
+                Remove from Library
+              </button>
             </div>
           ))}
         </div>

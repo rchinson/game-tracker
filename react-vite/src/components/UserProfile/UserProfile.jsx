@@ -1,15 +1,19 @@
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { thunkFetchUserReviews, thunkFetchUserGames } from "../../redux/session";
+import { useNavigate } from "react-router-dom";
+import {
+  thunkFetchUserReviews,
+  thunkFetchUserGames,
+  thunkLogout, // Import the logout action
+} from "../../redux/session";
 import "./UserProfile.css";
 
 const UserProfile = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const user = useSelector((state) => state.session.user);
   const reviews = useSelector((state) => state.session.reviews || []);
   const games = useSelector((state) => state.session.games || []);
-
-    console.log("USER GAMES___",games)
 
   useEffect(() => {
     if (user) {
@@ -21,6 +25,34 @@ const UserProfile = () => {
   if (!user) {
     return <div>Please log in to view your profile.</div>;
   }
+
+  const handleNavigateToEditProfile = () => {
+    navigate(`/user/${user.id}/edit`);
+  };
+
+  const handleDeleteProfile = async () => {
+    if (window.confirm("Are you sure you want to delete your profile? This action cannot be undone.")) {
+      try {
+        const response = await fetch(`/api/users/${user.id}`, {
+          method: "DELETE",
+          headers: {
+            "Content-Type": "application/json",
+          },
+        });
+        if (response.ok) {
+          dispatch(thunkLogout()); // Log out the user
+          alert("Your profile has been successfully deleted.");
+          navigate("/"); // Redirect to the homepage
+        } else {
+          const errorData = await response.json();
+          alert(errorData.error || "Failed to delete your profile. Please try again.");
+        }
+      } catch (err) {
+        console.error("Error deleting profile:", err);
+        alert("An error occurred. Please try again.");
+      }
+    }
+  };
 
   return (
     <div className="user-profile">
@@ -47,6 +79,18 @@ const UserProfile = () => {
           <p>
             <strong>About Me:</strong> {user.about_me || "No description yet."}
           </p>
+          <button
+            onClick={handleNavigateToEditProfile}
+            className="edit-profile-button"
+          >
+            Edit Profile
+          </button>
+          <button
+            onClick={handleDeleteProfile}
+            className="delete-profile-button"
+          >
+            Delete Profile
+          </button>
         </div>
       </div>
 
@@ -75,7 +119,6 @@ const UserProfile = () => {
       <div className="user-games">
         <h3>Your Game Collection</h3>
         <div className="games-grid">
-
           {games.length > 0 ? (
             games.map((game) => (
               <div key={game.id} className="game-card">
@@ -101,7 +144,6 @@ const UserProfile = () => {
           ) : (
             <p>Your collection is empty.</p>
           )}
-          
         </div>
       </div>
     </div>

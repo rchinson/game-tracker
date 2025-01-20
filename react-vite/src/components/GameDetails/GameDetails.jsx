@@ -1,12 +1,13 @@
 import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import { useNavigate, useParams } from "react-router-dom";
 import { thunkFetchGames } from "../../redux/games";
-import { useParams } from "react-router-dom";
 import "./GameDetails.css";
 
 const GameDetails = () => {
   const { gameId } = useParams(); // Get the gameId from the URL
   const dispatch = useDispatch();
+  const navigate = useNavigate(); // Initialize the navigate hook
   const games = useSelector((state) => state.games); // Get all games from Redux
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
@@ -30,6 +31,10 @@ const GameDetails = () => {
       setLoading(false);
     }
   }, [dispatch, games]);
+
+  const handleViewScreenshots = () => {
+    navigate(`/games/${gameId}/screenshots`); // Navigate to the screenshots route
+  };
 
   if (loading) {
     return <div>Loading game details...</div>;
@@ -65,6 +70,12 @@ const GameDetails = () => {
           <p>
             <strong>Description:</strong> {game.description || "No description available."}
           </p>
+          <button
+            onClick={handleViewScreenshots}
+            className="view-screenshots-button"
+          >
+            View Screenshots
+          </button>
         </div>
       </div>
     </div>

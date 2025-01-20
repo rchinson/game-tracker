@@ -54,3 +54,24 @@
   font-size: 14px;
   color: #666;
 }
+
+.remove-from-library-button {
+  margin-top: 10px;
+  padding: 8px 12px;
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.remove-from-library-button:hover {
+  background-color: #c82333;
+  transform: scale(1.05);
+}
+
+.remove-from-library-button:active {
+  background-color: #a71d2a;
+}
