@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { thunkFetchUserGamesLibrary } from "../../redux/usergames";
 import "./UserGameLibrary.css";
@@ -40,7 +40,7 @@ const UserGameLibrary = () => {
 
   return (
     <div className="user-game-library">
-      <h2>{currentUser.first_name}'s Game Library</h2>
+      <h2>{`${currentUser.first_name}'s Game Library`}</h2>
       {userGames.length > 0 ? (
         <div className="games-grid">
           {userGames.map((game) => (

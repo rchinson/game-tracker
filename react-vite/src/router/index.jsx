@@ -15,10 +15,28 @@ export const router = createBrowserRouter([
   {
     element: <Layout />,
     children: [
+
+      // {
+      //   path: "/",
+      //   element: <h1>Welcome!</h1>,
+      // },
+
+
+
       {
         path: "/",
-        element: <h1>Welcome!</h1>,
+        element: <Games />,
       },
+
+      {
+        path: "/games/:gameId",
+        element: <GameDetails />,
+      },
+
+
+
+
+
       {
         path: "login",
         element: <LoginFormPage />,
@@ -31,12 +49,12 @@ export const router = createBrowserRouter([
 
 
       {
-        path: "/users/:userId",
+        path: "/user/:userId",
         element: <UserProfile />,
       },
 
       {
-        path: "/users/:userId/edit",
+        path: "/user/:userId/edit",
         element: <UserProfileEdit />,
       },
 
@@ -48,14 +66,7 @@ export const router = createBrowserRouter([
 
 
 
-      {
-        path: "/games",
-        element: <Games />,
-      },
-      {
-        path: "/games/:gameId",
-        element: <GameDetails />,
-      },
+
 
       
 
@@ -65,7 +76,10 @@ export const router = createBrowserRouter([
         path: "/screenshots",
         element: <Screenshots />,
       },
-
+      // {
+      //   path: "/games/:gameId/screenshots",
+      //   element: <Screenshots />,
+      // },
 
 
 

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { thunkAuthenticate } from "../../redux/session"; // Thunk to refresh current user
 import "./UserProfileEdit.css";
