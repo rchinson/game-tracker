@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import {
   thunkFetchUserReviews,
   thunkFetchUserGames,
-  thunkLogout, // Import the logout action
+  thunkLogout, 
 } from "../../redux/session";
 import "./UserProfile.css";
 
@@ -30,8 +30,20 @@ const UserProfile = () => {
     navigate(`/user/${user.id}/edit`);
   };
 
+  const handleNavigateToMyGames = () => {
+    navigate(`/${user.id}/games`); 
+  };
+
+  const handleNavigateToMyReviews = () => {
+    navigate(`/user/${user.id}/reviews`); 
+  };
+
+  const handleNavigateToMyScreenshots = () => {
+    navigate(`/user/${user.id}/screenshots`); // Navigate to the user's screenshots page
+  };
+
   const handleDeleteProfile = async () => {
-    if (window.confirm("Are you sure you want to delete your profile? This action cannot be undone.")) {
+    if (window.confirm("Are you sure you want to delete your profile?")) {
       try {
         const response = await fetch(`/api/users/${user.id}`, {
           method: "DELETE",
@@ -40,9 +52,8 @@ const UserProfile = () => {
           },
         });
         if (response.ok) {
-          dispatch(thunkLogout()); // Log out the user
-          alert("Your profile has been successfully deleted.");
-          navigate("/"); // Redirect to the homepage
+          dispatch(thunkLogout());
+          navigate("/"); 
         } else {
           const errorData = await response.json();
           alert(errorData.error || "Failed to delete your profile. Please try again.");
@@ -91,6 +102,26 @@ const UserProfile = () => {
           >
             Delete Profile
           </button>
+
+
+
+        <div className="extra-actions">
+          <button onClick={handleNavigateToMyGames} className="my-games-button">
+            My Games
+          </button>
+          <button onClick={handleNavigateToMyReviews} className="my-reviews-button">
+            My Reviews
+          </button>
+          <button
+            onClick={handleNavigateToMyScreenshots}
+            className="my-screenshots-button"
+          >
+            My Screenshots
+          </button>
+        </div>
+          
+
+          
         </div>
       </div>
 

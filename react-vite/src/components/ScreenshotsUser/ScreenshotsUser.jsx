@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 import {
   thunkFetchScreenshots,
   thunkUpdateScreenshot,
@@ -10,7 +10,7 @@ import "./ScreenshotsUser.css";
 
 const ScreenshotsUser = () => {
   const dispatch = useDispatch();
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   const screenshots = useSelector((state) => state.screenshots);
   const currentUser = useSelector((state) => state.session.user); // Get the logged-in user
   const [loading, setLoading] = useState(true);
@@ -54,9 +54,9 @@ const ScreenshotsUser = () => {
     }
   };
 
-  const handleNavigateToNewScreenshot = () => {
-    navigate(`/screenshots/new`); // Navigate to the new screenshot path
-  };
+  // const handleNavigateToNewScreenshot = () => {
+  //   navigate(`/screenshots/new`); // Navigate to the new screenshot path
+  // };
 
   if (!currentUser) {
     return <div>Please log in to view your screenshots.</div>;
@@ -70,12 +70,12 @@ const ScreenshotsUser = () => {
       <h2>{`${currentUser.first_name}'s Screenshots`}</h2>
 
       {/* Button to navigate to add new screenshot */}
-      <button
+      {/* <button
         onClick={handleNavigateToNewScreenshot}
         className="new-screenshot-button"
       >
         Add New Screenshot
-      </button>
+      </button> */}
 
       {userScreenshots.length > 0 ? (
         <div className="screenshots-grid">

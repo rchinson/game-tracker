@@ -140,3 +140,81 @@
 .delete-profile-button:active {
   background-color: #a71d2a;
 }
+
+
+.my-games-button {
+  margin-top: 10px;
+  padding: 10px 15px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.my-games-button:hover {
+  background-color: #0056b3;
+  transform: scale(1.05);
+}
+
+.my-games-button:active {
+  background-color: #003f7f;
+}
+
+
+.my-reviews-button {
+  margin-top: 10px;
+  padding: 10px 15px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.my-reviews-button:hover {
+  background-color: #0056b3;
+  transform: scale(1.05);
+}
+
+.my-reviews-button:active {
+  background-color: #003f7f;
+}
+
+.my-screenshots-button {
+  margin-top: 10px;
+  padding: 10px 15px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.my-screenshots-button:hover {
+  background-color: #0056b3;
+  transform: scale(1.05);
+}
+
+.my-screenshots-button:active {
+  background-color: #003f7f;
+}
+
+
+.profile-actions {
+  margin-top: 20px;
+  display: flex;
+  gap: 15px;
+}
+
+.extra-actions {
+  margin-top: 15px;
+  display: flex;
+  gap: 15px;
+}

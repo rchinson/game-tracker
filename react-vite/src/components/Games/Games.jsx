@@ -90,7 +90,7 @@ const Games = () => {
           Add New Game
         </button>
       ) : (
-        <p className="login-message">Log in to add new games.</p>
+        <p className="login-message"> {/*Log in to add new games. */}</p>
       )}
 
       {games.length > 0 ? (

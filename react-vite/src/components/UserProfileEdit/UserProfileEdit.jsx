@@ -1,10 +1,12 @@
 import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { thunkAuthenticate } from "../../redux/session"; // Thunk to refresh current user
+import { useNavigate } from "react-router-dom"; 
+import { thunkAuthenticate } from "../../redux/session"; 
 import "./UserProfileEdit.css";
 
 const UserProfileEdit = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const currentUser = useSelector((state) => state.session.user);
 
   const [formData, setFormData] = useState({
@@ -34,8 +36,8 @@ const UserProfileEdit = () => {
       });
 
       if (response.ok) {
-        await dispatch(thunkAuthenticate()); // Refresh the current user in Redux store
-        alert("Profile updated successfully!");
+        await dispatch(thunkAuthenticate()); 
+        navigate(`/user/${currentUser.id}`); 
       } else {
         const errorData = await response.json();
         setError(errorData.message || "An error occurred while updating your profile.");
