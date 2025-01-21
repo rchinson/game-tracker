@@ -99,8 +99,8 @@ const Games = () => {
             <div
               key={game.id}
               className="game-card"
-              onClick={() => handleNavigateToGameDetails(game.id)} // Redirect to game details
-              style={{ cursor: "pointer" }} // Add pointer cursor for clarity
+              onClick={() => handleNavigateToGameDetails(game.id)} 
+              style={{ cursor: "pointer" }} 
             >
               <img
                 src={game.image}

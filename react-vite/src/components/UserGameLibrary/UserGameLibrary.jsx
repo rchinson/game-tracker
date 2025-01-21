@@ -5,9 +5,11 @@ import {
   // thunkRemoveGameFromLibrary,
 } from "../../redux/usergames";
 import "./UserGameLibrary.css";
+import { useNavigate } from "react-router-dom";
 
 const UserGameLibrary = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const currentUser = useSelector((state) => state.session.user);
   const userGames = useSelector((state) => state.userGames);
   const [loading, setLoading] = useState(true);
@@ -44,6 +46,12 @@ const UserGameLibrary = () => {
     // }
   };
 
+  const handleNavigateToGameDetails = (gameId) => {
+    navigate(`/games/${gameId}`);
+  };
+
+
+
   if (!currentUser) {
     return <div>Please log in to view your game library.</div>;
   }
@@ -62,7 +70,12 @@ const UserGameLibrary = () => {
       {userGames.length > 0 ? (
         <div className="games-grid">
           {userGames.map((game) => (
-            <div key={game.id} className="game-card">
+            <div 
+              key={game.id} 
+              className="game-card" 
+              onClick={() => handleNavigateToGameDetails(game.id)} 
+              style={{ cursor: "pointer" }} 
+              >
               <img src={game.image} alt={game.title} className="game-image" />
               <h3>{game.title}</h3>
               <p>{game.genre}</p>

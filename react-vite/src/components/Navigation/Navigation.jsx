@@ -11,7 +11,11 @@ function Navigation() {
       <div id="logo-banner">
         <Link to="/" className="logo-link">
           <img src={gametrackerlogo} alt="GamesTracker Logo" />
-          <p>Game Tracker</p>
+          {/* <p id="game-tracker-text">Game Tracker</p> */}
+        </Link>
+
+        <Link to="/" className="logo-text">
+          <p id="game-tracker-text">Game Tracker</p>
         </Link>
         
       </div>

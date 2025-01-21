@@ -28,6 +28,30 @@ function LoginFormModal() {
     }
   };
 
+
+  // Demo User credentials
+  const demoUser = {
+    email: "mike@aa.io",
+    password: "password",
+  };
+
+  
+
+  const handleDemoLogin = (e) => {
+    e.preventDefault();
+
+    // Dispatching the login action for demo user
+    dispatch(thunkLogin(demoUser))
+      .then(() => {
+        closeModal(); // Close modal after successful login
+        // navigate("/user/1"); // Navigate to the user page after login
+      })
+      .catch((error) => {
+        console.error("Login failed", error); // Handle error if login fails
+      });
+  };
+
+
   return (
     <>
       <h1>Log In</h1>
@@ -54,6 +78,10 @@ function LoginFormModal() {
         {errors.password && <p>{errors.password}</p>}
         <button type="submit">Log In</button>
       </form>
+      
+      {/* Demo User Login Button */}
+      <button onClick={handleDemoLogin}>Log in as Demo User</button>
+
     </>
   );
 }
