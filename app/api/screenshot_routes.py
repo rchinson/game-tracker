@@ -1,8 +1,24 @@
 from flask import Blueprint, jsonify, request
 from flask_login import login_required, current_user
 from app.models import db, Screenshot, Game
+from flask_wtf.csrf import generate_csrf
 
 screenshot_routes = Blueprint('screenshots', __name__)
+
+
+
+
+@screenshot_routes.route('/csrf-token', methods=['GET'])
+def get_csrf_token():
+    """
+    Generate and send a CSRF token as a cookie.
+    """
+    response = jsonify({'message': 'CSRF token generated'})
+    response.set_cookie('csrf_token', generate_csrf(), secure=True, samesite='Strict', httponly=True)
+    return response
+
+
+
 
 @screenshot_routes.route('/')
 def get_screenshots():

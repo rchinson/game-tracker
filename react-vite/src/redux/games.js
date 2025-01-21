@@ -33,9 +33,9 @@ export const thunkFetchGames = () => async (dispatch) => {
   }
 };
 
+
+
 export const thunkAddGame = (game) => async (dispatch) => {
-
-
   const response = await fetch(`/api/games`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
@@ -47,6 +47,9 @@ export const thunkAddGame = (game) => async (dispatch) => {
     dispatch(addGame(data));
   }
 };
+
+
+
 
 export const thunkUpdateGame = (gameId, updatedData) => async (dispatch) => {
   const response = await fetch(`/api/games/${gameId}`, {

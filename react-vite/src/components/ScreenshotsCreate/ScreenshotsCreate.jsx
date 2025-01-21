@@ -2,8 +2,10 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { thunkAddScreenshot } from "../../redux/screenshots";
 import "./ScreenshotsCreate.css";
+import { useParams } from "react-router-dom";
 
-const ScreenshotsCreate = ({ gameId, onSuccess, onError }) => {
+const ScreenshotsCreate = ({ onSuccess, onError }) => {
+  const { gameId } = useParams()
   const dispatch = useDispatch();
   const [formData, setFormData] = useState({
     image_url: "",
@@ -11,10 +13,14 @@ const ScreenshotsCreate = ({ gameId, onSuccess, onError }) => {
     game_id: gameId,
   });
 
+
+
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData((prevData) => ({ ...prevData, [name]: value }));
   };
+
+  console.log(formData)
 
   const handleSubmit = async (e) => {
     e.preventDefault();

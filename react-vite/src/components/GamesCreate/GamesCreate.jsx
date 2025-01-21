@@ -11,14 +11,16 @@ const GamesCreate = () => {
     platform: "",
     price: "",
     image: "",
+    description: ""
   });
   const [error, setError] = useState("");
+
 
   const handleAddGame = async (e) => {
     e.preventDefault();
     try {
       await dispatch(thunkAddGame(newGame));
-      setNewGame({ title: "", genre: "", platform: "", price: "", image: "" });
+      setNewGame({ title: "", genre: "", platform: "", price: "", image: "", description: "" });
     } catch (err) {
       setError("Failed to add game.");
     }
@@ -65,6 +67,15 @@ const GamesCreate = () => {
         onChange={(e) => setNewGame({ ...newGame, image: e.target.value })}
         required
       />
+
+      <input
+        type="text"
+        placeholder="Description"
+        value={newGame.description}
+        onChange={(e) => setNewGame({ ...newGame, description: e.target.value })}
+        required
+      />
+
       <button type="submit">Add Game</button>
     </form>
   );

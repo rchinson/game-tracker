@@ -35,14 +35,13 @@ export const thunkFetchScreenshots = (gameId) => async (dispatch) => {
 
 export const thunkAddScreenshot = (screenshot) => async (dispatch) => {
 
-    console.log("ENTERING ADD THUNK")
+
     const response = await fetch(`/api/screenshots`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(screenshot),
     });
 
-    console.log("RESPONSE-------",response)
 
     if (response.ok) {
         const data = await response.json();

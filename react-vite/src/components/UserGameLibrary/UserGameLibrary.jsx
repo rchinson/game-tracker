@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import {
   thunkFetchUserGamesLibrary,
-  thunkRemoveGameFromLibrary,
+  // thunkRemoveGameFromLibrary,
 } from "../../redux/usergames";
 import "./UserGameLibrary.css";
 
@@ -29,7 +29,7 @@ const UserGameLibrary = () => {
     }
   }, [dispatch, currentUser]);
 
-  const handleRemoveFromLibrary = async (gameId) => {
+  const handleRemoveFromLibrary = async () => {
 
     // adjusted until functionality is corrected
     alert("Feature coming soon.");

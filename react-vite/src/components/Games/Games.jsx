@@ -8,7 +8,7 @@ import {
 } from "../../redux/games";
 import {
   thunkFetchUserGamesLibrary,
-  thunkAddGameToLibrary,
+  // thunkAddGameToLibrary,
 } from "../../redux/usergames"; // Import userGames thunks
 import "./Games.css";
 
@@ -57,7 +57,7 @@ const Games = () => {
     }
   };
 
-  const handleAddToLibrary = async (gameId) => {
+  const handleAddToLibrary = async () => {
     alert("Feature Coming Soon.");
   };
 
