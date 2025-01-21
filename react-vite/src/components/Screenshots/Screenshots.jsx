@@ -6,7 +6,7 @@ import {
   thunkUpdateScreenshot,
   thunkDeleteScreenshot,
 } from "../../redux/screenshots";
-import { thunkFetchUserGamesLibrary } from "../../redux/usergames"; // Import user library thunk
+import { thunkFetchGames } from "../../redux/games"; // Import games thunk
 import "./Screenshots.css";
 
 const Screenshots = () => {
@@ -15,10 +15,13 @@ const Screenshots = () => {
   const navigate = useNavigate(); // Initialize navigate hook
   const screenshots = useSelector((state) => state.screenshots);
   const currentUser = useSelector((state) => state.session.user); // Get the logged-in user
-  const userLibrary = useSelector((state) => state.userGames || []); // User's library
+  const games = useSelector((state) => state.games); // Get all games from Redux
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
   const [editData, setEditData] = useState(null);
+
+  // Find the current game in the games state
+  const currentGame = games.find((game) => game.id === parseInt(gameId, 10));
 
   let currScreenshots = [];
 
@@ -31,19 +34,17 @@ const Screenshots = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
+        await dispatch(thunkFetchGames()); // Fetch games to ensure `games` state is populated
         await dispatch(thunkFetchScreenshots(gameId)); // Fetch screenshots for the game
-        if (currentUser) {
-          await dispatch(thunkFetchUserGamesLibrary(currentUser.id)); // Fetch user's library
-        }
       } catch (err) {
-        setError("Failed to load screenshots or library data.");
+        setError("Failed to load screenshots or game data.");
       } finally {
         setLoading(false);
       }
     };
 
     fetchData();
-  }, [dispatch, gameId, currentUser]);
+  }, [dispatch, gameId]);
 
   const handleEditScreenshot = async (e) => {
     e.preventDefault();
@@ -64,15 +65,7 @@ const Screenshots = () => {
   };
 
   const handleNavigateToNewScreenshot = () => {
-    if (!isGameInLibrary(gameId)) {
-      alert("You must own this game in your library to add screenshots.");
-      return;
-    }
     navigate(`/games/${gameId}/screenshots/new`); // Navigate to the new screenshot path
-  };
-
-  const isGameInLibrary = (gameId) => {
-    return userLibrary.some((game) => game.id === parseInt(gameId, 10)); // Check if the game is in the user's library
   };
 
   if (loading) return <div>Loading screenshots...</div>;
@@ -80,8 +73,7 @@ const Screenshots = () => {
 
   return (
     <div className="game-screenshots">
-      <h2>Game Screenshots</h2>
-
+      <h2>{currentGame?.title || "Game"} Screenshots</h2> {/* Display game name */}
       {/* Button to navigate to add new screenshot */}
       {currentUser && (
         <button

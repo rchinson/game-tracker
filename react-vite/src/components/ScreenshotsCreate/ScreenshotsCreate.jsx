@@ -1,26 +1,23 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
+import { useNavigate, useParams } from "react-router-dom"; 
 import { thunkAddScreenshot } from "../../redux/screenshots";
 import "./ScreenshotsCreate.css";
-import { useParams } from "react-router-dom";
 
 const ScreenshotsCreate = ({ onSuccess, onError }) => {
-  const { gameId } = useParams()
+  const { gameId } = useParams(); 
   const dispatch = useDispatch();
+  const navigate = useNavigate(); 
   const [formData, setFormData] = useState({
     image_url: "",
     description: "",
     game_id: gameId,
   });
 
-
-
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData((prevData) => ({ ...prevData, [name]: value }));
   };
-
-  console.log(formData)
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -28,6 +25,7 @@ const ScreenshotsCreate = ({ onSuccess, onError }) => {
       await dispatch(thunkAddScreenshot(formData));
       setFormData({ image_url: "", description: "", game_id: gameId });
       if (onSuccess) onSuccess();
+      navigate(`/games/${gameId}/screenshots`);
     } catch (err) {
       if (onError) onError("Failed to add screenshot.");
     }

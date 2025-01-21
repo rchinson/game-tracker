@@ -12,8 +12,8 @@ const UserProfile = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const user = useSelector((state) => state.session.user);
-  const reviews = useSelector((state) => state.session.reviews || []);
-  const games = useSelector((state) => state.session.games || []);
+  // const reviews = useSelector((state) => state.session.reviews || []);
+  // const games = useSelector((state) => state.session.games || []);
 
   useEffect(() => {
     if (user) {
@@ -95,7 +95,7 @@ const UserProfile = () => {
       </div>
 
       {/* User Reviews */}
-      <div className="user-reviews">
+      {/* <div className="user-reviews">
         <h3>Your Reviews</h3>
         {reviews.length > 0 ? (
           reviews.map((review) => (
@@ -113,10 +113,10 @@ const UserProfile = () => {
         ) : (
           <p>You haven’t written any reviews yet.</p>
         )}
-      </div>
+      </div> */}
 
       {/* User Game Collection */}
-      <div className="user-games">
+      {/* <div className="user-games">
         <h3>Your Game Collection</h3>
         <div className="games-grid">
           {games.length > 0 ? (
@@ -145,7 +145,7 @@ const UserProfile = () => {
             <p>Your collection is empty.</p>
           )}
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };
