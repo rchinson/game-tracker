@@ -127,3 +127,25 @@ form .cancel-button {
 form .cancel-button:hover {
   background-color: #c82333;
 }
+
+
+.new-screenshot-button {
+  margin-bottom: 20px;
+  padding: 10px 15px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.new-screenshot-button:hover {
+  background-color: #0056b3;
+  transform: scale(1.05);
+}
+
+.new-screenshot-button:active {
+  background-color: #003f7f;
+}

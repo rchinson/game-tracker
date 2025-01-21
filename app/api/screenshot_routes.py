@@ -22,6 +22,9 @@ def get_screenshot(id):
         return jsonify({'error': 'Screenshot not found'}), 404
     return screenshot.to_dict()
 
+
+
+
 @screenshot_routes.route('/', methods=['POST'])
 @login_required
 def create_screenshot():
@@ -42,6 +45,8 @@ def create_screenshot():
     db.session.add(new_screenshot)
     db.session.commit()
     return new_screenshot.to_dict(), 201
+
+
 
 @screenshot_routes.route('/<int:id>', methods=['PUT'])
 @login_required

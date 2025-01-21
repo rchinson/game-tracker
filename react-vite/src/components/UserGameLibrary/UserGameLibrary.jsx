@@ -30,12 +30,18 @@ const UserGameLibrary = () => {
   }, [dispatch, currentUser]);
 
   const handleRemoveFromLibrary = async (gameId) => {
-    try {
-      await dispatch(thunkRemoveGameFromLibrary(gameId));
-      alert("Game removed from your library.");
-    } catch (err) {
-      alert(err.message);
-    }
+
+    // adjusted until functionality is corrected
+    alert("Feature coming soon.");
+
+
+
+    // try {
+    //   await dispatch(thunkRemoveGameFromLibrary(gameId));
+    //   alert("Game removed from your library.");
+    // } catch (err) {
+    //   alert(err.message);
+    // }
   };
 
   if (!currentUser) {
