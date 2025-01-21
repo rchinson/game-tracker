@@ -1,26 +1,35 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom"; 
 import { thunkAddGame } from "../../redux/games";
 import "./GamesCreate.css";
 
 const GamesCreate = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate(); 
   const [newGame, setNewGame] = useState({
     title: "",
     genre: "",
     platform: "",
     price: "",
     image: "",
-    description: ""
+    description: "",
   });
   const [error, setError] = useState("");
-
 
   const handleAddGame = async (e) => {
     e.preventDefault();
     try {
       await dispatch(thunkAddGame(newGame));
-      setNewGame({ title: "", genre: "", platform: "", price: "", image: "", description: "" });
+      setNewGame({
+        title: "",
+        genre: "",
+        platform: "",
+        price: "",
+        image: "",
+        description: "",
+      });
+      navigate("/"); 
     } catch (err) {
       setError("Failed to add game.");
     }
@@ -67,7 +76,6 @@ const GamesCreate = () => {
         onChange={(e) => setNewGame({ ...newGame, image: e.target.value })}
         required
       />
-
       <input
         type="text"
         placeholder="Description"
@@ -75,7 +83,6 @@ const GamesCreate = () => {
         onChange={(e) => setNewGame({ ...newGame, description: e.target.value })}
         required
       />
-
       <button type="submit">Add Game</button>
     </form>
   );
