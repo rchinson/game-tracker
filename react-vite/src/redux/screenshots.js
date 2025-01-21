@@ -34,14 +34,11 @@ export const thunkFetchScreenshots = (gameId) => async (dispatch) => {
 };
 
 export const thunkAddScreenshot = (screenshot) => async (dispatch) => {
-
-
     const response = await fetch(`/api/screenshots`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(screenshot),
     });
-
 
     if (response.ok) {
         const data = await response.json();

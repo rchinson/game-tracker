@@ -47,8 +47,16 @@
   color: #333;
 }
 
-.view-screenshots-button {
+.game-details-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
   margin-top: 20px;
+}
+
+.view-screenshots-button,
+.view-reviews-button {
   padding: 10px 20px;
   background-color: #007bff;
   color: white;
@@ -59,11 +67,13 @@
   transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
-.view-screenshots-button:hover {
+.view-screenshots-button:hover,
+.view-reviews-button:hover {
   background-color: #0056b3;
   transform: scale(1.05);
 }
 
-.view-screenshots-button:active {
+.view-screenshots-button:active,
+.view-reviews-button:active {
   background-color: #003f7f;
 }

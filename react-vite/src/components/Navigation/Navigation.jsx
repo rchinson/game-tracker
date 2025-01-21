@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-
+import gametrackerlogo from "../../../public/gametrackerlogo.png"
 import ProfileButton from "./ProfileButton";
 
 import "./Navigation.css";
@@ -10,8 +10,10 @@ function Navigation() {
       {/* Logo Section */}
       <div id="logo-banner">
         <Link to="/" className="logo-link">
-          <img src={null} alt="GamesTracker Logo" />
+          <img src={gametrackerlogo} alt="GamesTracker Logo" />
+          <p>Game Tracker</p>
         </Link>
+        
       </div>
 
       {/* Search Bar */}
@@ -21,11 +23,11 @@ function Navigation() {
 
       {/* Navigation Actions */}
       <div id="actions-container">
-        <Link to="/about" className="nav-link">
+        {/* <Link to="/about" className="nav-link">
           About
-        </Link>
-        {/* <Link to="/restaurants" className="nav-link">
-          Restaurants
+        </Link> */}
+        {/* <Link to="/Games" className="nav-link">
+          Games
         </Link> */}
         <ProfileButton />
       </div>

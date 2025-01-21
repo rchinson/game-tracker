@@ -36,6 +36,10 @@ const GameDetails = () => {
     navigate(`/games/${gameId}/screenshots`); // Navigate to the screenshots route
   };
 
+  const handleViewReviews = () => {
+    navigate(`/games/${gameId}/reviews`); // Navigate to the reviews route
+  };
+
   if (loading) {
     return <div>Loading game details...</div>;
   }
@@ -70,12 +74,20 @@ const GameDetails = () => {
           <p>
             <strong>Description:</strong> {game.description || "No description available."}
           </p>
-          <button
-            onClick={handleViewScreenshots}
-            className="view-screenshots-button"
-          >
-            View Screenshots
-          </button>
+          <div className="game-details-buttons">
+            <button
+              onClick={handleViewScreenshots}
+              className="view-screenshots-button"
+            >
+              View Screenshots
+            </button>
+            <button
+              onClick={handleViewReviews}
+              className="view-reviews-button"
+            >
+              View Reviews
+            </button>
+          </div>
         </div>
       </div>
     </div>

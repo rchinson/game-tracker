@@ -1,17 +1,14 @@
 /* General Container */
-.user-screenshots {
+.game-screenshots {
   max-width: 1200px;
   margin: auto;
   padding: 20px;
   font-family: Arial, sans-serif;
   background-color: #f9f9f9;
-  border-radius: 8px;
-  border: 1px solid #ddd;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 /* Header */
-.user-screenshots h2 {
+.game-screenshots h2 {
   text-align: center;
   margin-bottom: 20px;
   font-size: 24px;
@@ -37,36 +34,23 @@
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.screenshot-card:hover {
-  transform: scale(1.02);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-}
 
-/* Screenshot Image */
 .screenshot-image {
   width: 100%;
   height: 150px;
   object-fit: cover;
   border-bottom: 1px solid #ddd;
-  border-radius: 8px 8px 0 0;
 }
 
-/* Screenshot Description */
 .screenshot-card p {
   padding: 10px;
   font-size: 14px;
   color: #666;
 }
 
-/* Screenshot Actions */
-.screenshot-actions {
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-  margin-top: 10px;
-}
-
-.screenshot-actions button {
+/* Buttons */
+.screenshot-card button {
+  margin: 5px;
   padding: 8px 12px;
   background-color: #007bff;
   color: white;
@@ -74,24 +58,24 @@
   border-radius: 5px;
   font-size: 14px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: background 0.3s ease;
 }
 
-.screenshot-actions button:hover {
+.screenshot-card button:hover {
   background-color: #0056b3;
 }
 
-.screenshot-actions button:nth-child(2) {
+.screenshot-card button:nth-child(2) {
   background-color: #dc3545;
 }
 
-.screenshot-actions button:nth-child(2):hover {
+.screenshot-card button:nth-child(2):hover {
   background-color: #c82333;
 }
 
-/* Edit Screenshot Form */
-.edit-screenshot-form {
-  margin-top: 30px;
+/* Forms */
+form {
+  margin-top: 20px;
   padding: 20px;
   background-color: #fff;
   border-radius: 8px;
@@ -99,57 +83,52 @@
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
-.edit-screenshot-form h3 {
+form h3 {
   margin-bottom: 10px;
   font-size: 18px;
   color: #333;
 }
 
-.edit-screenshot-form input,
-.edit-screenshot-form textarea {
+form input,
+form textarea {
   width: 100%;
   padding: 10px;
-  margin-bottom: 15px;
+  margin-bottom: 10px;
   border: 1px solid #ddd;
   border-radius: 5px;
   font-size: 14px;
-  color: #555;
 }
 
-.edit-screenshot-form textarea {
+form textarea {
   resize: vertical;
-  height: 100px;
+  height: 80px;
 }
 
-/* Form Buttons */
-.edit-screenshot-form button {
+form button {
+  display: inline-block;
   padding: 10px 20px;
   font-size: 14px;
+  background-color: #4caf50;
+  color: white;
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: background 0.3s ease;
 }
 
-.edit-screenshot-form button[type="submit"] {
-  background-color: #007bff;
-  color: white;
+form button:hover {
+  background-color: #45a049;
 }
 
-.edit-screenshot-form button[type="submit"]:hover {
-  background-color: #0056b3;
-}
-
-.edit-screenshot-form .cancel-button {
+form .cancel-button {
   background-color: #dc3545;
-  color: white;
 }
 
-.edit-screenshot-form .cancel-button:hover {
+form .cancel-button:hover {
   background-color: #c82333;
 }
 
-/* Add Screenshot Button */
+
 .new-screenshot-button {
   margin-bottom: 20px;
   padding: 10px 15px;

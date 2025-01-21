@@ -1,0 +1,185 @@
+/* Container for the reviews section */
+.game-reviews {
+  max-width: 800px;
+  margin: auto;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Header for the reviews */
+.game-reviews h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 24px;
+  color: #333;
+}
+
+/* Reviews list container */
+.reviews-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* Individual review card */
+.review-card {
+  background-color: white;
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+/* Review title */
+.review-card h3 {
+  font-size: 18px;
+  margin-bottom: 10px;
+  color: #007bff;
+}
+
+/* Review body text */
+.review-card p {
+  margin: 5px 0;
+  font-size: 16px;
+  color: #555;
+}
+
+/* Actions container */
+.review-actions {
+  margin-top: 10px;
+  display: flex;
+  gap: 10px;
+}
+
+/* Edit button */
+.edit-button {
+  padding: 8px 16px;
+  background-color: #ffc107;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.edit-button:hover {
+  background-color: #e0a800;
+  transform: scale(1.05);
+}
+
+.edit-button:active {
+  background-color: #c69500;
+}
+
+/* Delete button */
+.delete-button {
+  padding: 8px 16px;
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.delete-button:hover {
+  background-color: #b02a37;
+  transform: scale(1.05);
+}
+
+.delete-button:active {
+  background-color: #8b1f2a;
+}
+
+/* Edit form */
+.edit-review-form {
+  margin-top: 20px;
+  padding: 15px;
+  background-color: #f1f1f1;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+}
+
+/* Edit form inputs */
+.edit-review-form input[type="text"],
+.edit-review-form textarea,
+.edit-review-form input[type="number"] {
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+/* Update button */
+.update-button {
+  padding: 10px 20px;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.update-button:hover {
+  background-color: #218838;
+  transform: scale(1.05);
+}
+
+.update-button:active {
+  background-color: #1e7e34;
+}
+
+/* Cancel button */
+.cancel-button {
+  padding: 10px 20px;
+  background-color: #6c757d;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.cancel-button:hover {
+  background-color: #5a6268;
+  transform: scale(1.05);
+}
+
+.cancel-button:active {
+  background-color: #494f54;
+}
+
+
+
+.new-review-button {
+  display: inline-block;
+  margin-bottom: 20px;
+  padding: 10px 15px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.new-review-button:hover {
+  background-color: #0056b3;
+  transform: scale(1.05);
+}
+
+.new-review-button:active {
+  background-color: #003f7f;
+}

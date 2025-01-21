@@ -84,13 +84,13 @@ function ProfileButton() {
               </button>
               <button
                 className="dropdown-item"
-                onClick={() => navigate("/reviews")}
+                onClick={() => navigate( `/user/${user.id}/reviews` )}
               >
                 My Reviews
               </button>
               <button
                 className="dropdown-item"
-                onClick={() => navigate("/screenshots")}
+                onClick={() => navigate( `user/${user.id}/screenshots` )}
               >
                 My Screenshots
               </button>

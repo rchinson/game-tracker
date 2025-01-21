@@ -1,0 +1,59 @@
+import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { thunkAddReview } from "../../redux/reviews";
+import "./ReviewsCreate.css";
+
+const ReviewsCreate = ({ gameId }) => {
+  const dispatch = useDispatch();
+  const [newReview, setNewReview] = useState({
+    title: "",
+    body: "",
+    starRating: 1,
+    game_id: gameId,
+  });
+  const [error, setError] = useState("");
+
+  const handleAddReview = async (e) => {
+    e.preventDefault();
+    try {
+      await dispatch(thunkAddReview(newReview));
+      setNewReview({ title: "", body: "", starRating: 1, game_id: gameId });
+    } catch (err) {
+      setError("Failed to add review.");
+    }
+  };
+
+  return (
+    <form onSubmit={handleAddReview} className="add-review-form">
+      <h3>Add Review</h3>
+      {error && <p className="error-message">{error}</p>}
+      <input
+        type="text"
+        placeholder="Title"
+        value={newReview.title}
+        onChange={(e) => setNewReview({ ...newReview, title: e.target.value })}
+        required
+      />
+      <textarea
+        placeholder="Review Body"
+        value={newReview.body}
+        onChange={(e) => setNewReview({ ...newReview, body: e.target.value })}
+        required
+      ></textarea>
+      <input
+        type="number"
+        placeholder="Star Rating"
+        value={newReview.starRating}
+        onChange={(e) =>
+          setNewReview({ ...newReview, starRating: Number(e.target.value) })
+        }
+        min="1"
+        max="5"
+        required
+      />
+      <button type="submit">Add Review</button>
+    </form>
+  );
+};
+
+export default ReviewsCreate;

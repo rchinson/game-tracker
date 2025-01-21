@@ -12,6 +12,9 @@ import GameDetails from '../components/GameDetails';
 import ReviewsUser from '../components/ReviewsUser';
 import GamesCreate from '../components/GamesCreate/GamesCreate';
 import ScreenshotsCreate from '../components/ScreenshotsCreate/ScreenshotsCreate';
+import ReviewsGame from '../components/ReviewsGame';
+import ScreenshotsUser from '../components/ScreenshotsUser';
+import ReviewsCreate from '../components/ReviewsCreate';
 
 
 export const router = createBrowserRouter([
@@ -97,6 +100,10 @@ export const router = createBrowserRouter([
       },
 
 
+      {
+        path: "user/:userId/screenshots",
+        element: <ScreenshotsUser />,
+      },
 
       
 
@@ -107,10 +114,20 @@ export const router = createBrowserRouter([
       },
 
       {
+        path: "/games/:gameId/reviews",
+        element: <ReviewsGame />,
+      },
+
+      {
         path: "/user/:userId/reviews",
         element: <ReviewsUser />,
       },
 
+
+      {
+        path: "/games/:gameId/reviews/new",
+        element: <ReviewsCreate />,
+      },
 
 
 

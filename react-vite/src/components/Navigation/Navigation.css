@@ -11,10 +11,25 @@
   z-index: 1000;
 }
 
+#logo-banner {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem; /* Adjust spacing between image and text */
+  text-decoration: none;
+}
+
 #logo-banner img {
   height: 50px;
   width: auto;
   padding: 0;
+}
+
+#logo-banner p {
+  font-size: 1.5rem; /* Adjust font size */
+  margin: 0; /* Remove any default margins */
+  font-weight: bold; /* Optional: Make it bold */
+  color: #333333; /* Ensure text color matches the design */
+  text-decoration: none;
 }
 
 .search-container {
