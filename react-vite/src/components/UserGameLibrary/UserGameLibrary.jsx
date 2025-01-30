@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import {
   thunkFetchUserGamesLibrary,
-  // thunkRemoveGameFromLibrary,
+  thunkRemoveGameFromLibrary,
 } from "../../redux/usergames";
 import "./UserGameLibrary.css";
 import { useNavigate } from "react-router-dom";
@@ -14,6 +14,7 @@ const UserGameLibrary = () => {
   const userGames = useSelector((state) => state.userGames);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
+
 
   useEffect(() => {
     if (currentUser) {
@@ -31,19 +32,12 @@ const UserGameLibrary = () => {
     }
   }, [dispatch, currentUser]);
 
-  const handleRemoveFromLibrary = async () => {
-
-    // adjusted until functionality is corrected
-    alert("Feature coming soon.");
-
-
-
-    // try {
-    //   await dispatch(thunkRemoveGameFromLibrary(gameId));
-    //   alert("Game removed from your library.");
-    // } catch (err) {
-    //   alert(err.message);
-    // }
+  const handleRemoveFromLibrary = async (gameId) => {
+    try {
+      await dispatch(thunkRemoveGameFromLibrary(gameId));
+    } catch (err) {
+      alert("Failed to add game to your library.");
+    }
   };
 
   const handleNavigateToGameDetails = (gameId) => {

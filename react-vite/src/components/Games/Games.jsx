@@ -8,8 +8,8 @@ import {
 } from "../../redux/games";
 import {
   thunkFetchUserGamesLibrary,
-  // thunkAddGameToLibrary,
-} from "../../redux/usergames"; // Import userGames thunks
+  thunkAddGameToLibrary,
+} from "../../redux/usergames";
 import "./Games.css";
 
 const Games = () => {
@@ -17,7 +17,7 @@ const Games = () => {
   const navigate = useNavigate();
   const games = useSelector((state) => state.games);
   const currentUser = useSelector((state) => state.session.user);
-  const userLibrary = useSelector((state) => state.userGames || []); // User's library
+  const userLibrary = useSelector((state) => state.userGames || []); 
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
   const [editData, setEditData] = useState(null);
@@ -27,7 +27,7 @@ const Games = () => {
       try {
         await dispatch(thunkFetchGames());
         if (currentUser) {
-          await dispatch(thunkFetchUserGamesLibrary(currentUser.id)); // Fetch user's library
+          await dispatch(thunkFetchUserGamesLibrary(currentUser.id)); 
         }
       } catch (err) {
         setError("Failed to load games.");
@@ -57,10 +57,21 @@ const Games = () => {
     }
   };
 
-  const handleAddToLibrary = async () => {
-    alert("Feature Coming Soon.");
+
+  const handleAddToLibrary = async (gameId) => {
+    if (!currentUser) {
+      alert("You must be logged in to add a game to your library.");
+      return;
+    }
+    try {
+      await dispatch(thunkAddGameToLibrary(gameId));
+      await dispatch(thunkFetchUserGamesLibrary(currentUser.id));
+    } catch (err) {
+      setError("Failed to add game to library.");
+    }
   };
 
+  
   const handleNavigateToNewGame = () => {
     if (!currentUser) {
       alert("You must be logged in to add a new game.");
@@ -70,7 +81,7 @@ const Games = () => {
   };
 
   const isGameInLibrary = (gameId) => {
-    return userLibrary.some((game) => game.id === gameId); // Check if the game is in the user's library
+    return userLibrary.some((game) => game.id === gameId); 
   };
 
   const handleNavigateToGameDetails = (gameId) => {
@@ -116,8 +127,9 @@ const Games = () => {
               {currentUser && !isGameInLibrary(game.id) && (
                 <button
                   onClick={(e) => {
-                    e.stopPropagation(); // Prevent navigation when clicking the button
+                    e.stopPropagation();
                     handleAddToLibrary(game.id);
+                    console.log("GAME.id---",game.id)
                   }}
                   className="add-to-library-button"
                 >
@@ -130,7 +142,7 @@ const Games = () => {
                 <div className="game-actions">
                   <button
                     onClick={(e) => {
-                      e.stopPropagation(); // Prevent navigation when clicking the button
+                      e.stopPropagation(); 
                       setEditData(game);
                     }}
                   >
@@ -138,7 +150,7 @@ const Games = () => {
                   </button>
                   <button
                     onClick={(e) => {
-                      e.stopPropagation(); // Prevent navigation when clicking the button
+                      e.stopPropagation(); 
                       handleDeleteGame(game.id);
                     }}
                   >
