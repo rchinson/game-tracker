@@ -112,6 +112,10 @@ const ReviewsGame = () => {
               <p>
                 <strong>Rating:</strong> {review.starRating} / 5
               </p>
+              <p>
+                <strong>Username:</strong> {review.user.username}
+              </p>
+              
               {/* Show Edit/Delete buttons only for reviews owned by the logged-in user */}
               {currentUser && currentUser.id === review.user_id && (
                 <div className="review-actions">

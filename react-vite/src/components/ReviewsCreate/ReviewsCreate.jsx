@@ -1,12 +1,13 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { useNavigate } from "react-router-dom"; // Import useNavigate
+import { useNavigate, useParams } from "react-router-dom"; 
 import { thunkAddReview } from "../../redux/reviews";
 import "./ReviewsCreate.css";
 
-const ReviewsCreate = ({ gameId }) => {
+const ReviewsCreate = () => {
+  const { gameId } = useParams
   const dispatch = useDispatch();
-  const navigate = useNavigate(); // Initialize navigate
+  const navigate = useNavigate(); 
   const [newReview, setNewReview] = useState({
     title: "",
     body: "",
@@ -20,7 +21,7 @@ const ReviewsCreate = ({ gameId }) => {
     try {
       await dispatch(thunkAddReview(newReview));
       setNewReview({ title: "", body: "", starRating: "", game_id: gameId });
-      navigate(`/games/${gameId}/reviews`); // Redirect after successful review creation
+      navigate(`/games/${gameId}/reviews`);
     } catch (err) {
       setError("Failed to add review.");
     }
