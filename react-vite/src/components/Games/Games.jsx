@@ -67,7 +67,7 @@ const Games = () => {
       await dispatch(thunkAddGameToLibrary(gameId));
       await dispatch(thunkFetchUserGamesLibrary(currentUser.id));
     } catch (err) {
-      setError("Failed to add game to library.");
+      setError("Failed to add game to your library.");
     }
   };
 
