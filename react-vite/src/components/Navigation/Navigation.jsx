@@ -5,6 +5,12 @@ import ProfileButton from "./ProfileButton";
 import "./Navigation.css";
 
 function Navigation() {
+
+    const handleSteamLogin = () => {
+    window.location.href = "/api/auth/steam-login";
+  };
+
+
   return (
     <nav id="site-banner">
       {/* Logo Section */}
@@ -24,6 +30,11 @@ function Navigation() {
       {/* <div id="search-bar-container">
         <SearchBar />
       </div> */}
+
+    <button onClick={handleSteamLogin} className="steam-login-button">
+      Login with Steam
+    </button>
+
 
       {/* Navigation Actions */}
       <div id="actions-container">

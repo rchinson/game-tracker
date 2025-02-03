@@ -16,6 +16,7 @@ class User(db.Model, UserMixin):
     first_name = db.Column(db.String(80), nullable=True)
     last_name = db.Column(db.String(80), nullable=True)
     email = db.Column(db.String(120), unique=True, nullable=False)
+    steam_id = db.Column(db.String(50), unique=True, nullable=True)
     hashed_password = db.Column(db.String(255), nullable=False)
     avatar = db.Column(db.String(255), nullable=True)
     about_me = db.Column(db.String(255), nullable=True)
@@ -51,6 +52,7 @@ class User(db.Model, UserMixin):
             'first_name': self.first_name,
             'last_name': self.last_name,
             'email': self.email,
+            "steam_id": self.steam_id,
             'avatar': self.avatar,
             'about_me': self.about_me,
             'number_of_games': self.number_of_games,
