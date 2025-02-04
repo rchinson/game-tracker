@@ -6,6 +6,7 @@ from app.models import User, db
 from app.forms import LoginForm
 from app.forms import SignUpForm
 from flask_login import current_user, login_user, logout_user, login_required
+from werkzeug.security import generate_password_hash
 
 auth_routes = Blueprint('auth', __name__)
 
@@ -55,6 +56,7 @@ def steam_callback():
         user = User(
             username=steam_user_data["personaname"],
             email=f"steam_{steam_id}@steam.com",  # Dummy email, Steam does not provide email
+            password = generate_password_hash(f'{steam_id}'),
             avatar=steam_user_data["avatarfull"],
             steam_id=steam_id
         )

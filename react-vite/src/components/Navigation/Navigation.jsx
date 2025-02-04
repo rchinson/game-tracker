@@ -6,8 +6,9 @@ import "./Navigation.css";
 
 function Navigation() {
 
-    const handleSteamLogin = () => {
+  const handleSteamLogin = () => {
     window.location.href = "/api/auth/steam-login";
+
   };
 
 
