@@ -14,6 +14,7 @@ const UserProfile = () => {
   const user = useSelector((state) => state.session.user);
   // const reviews = useSelector((state) => state.session.reviews || []);
   // const games = useSelector((state) => state.session.games || []);
+  console.log('USER',user)
 
   useEffect(() => {
     if (user) {

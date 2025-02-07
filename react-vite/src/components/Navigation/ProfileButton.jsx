@@ -68,7 +68,7 @@ function ProfileButton() {
                 className="dropdown-item username-email"
                 style={{ fontWeight: "bold" }}
               >
-                Hi {user.username}! ({user.email})
+                Hi {user.username}
               </li>
               <button
                 className="dropdown-item"

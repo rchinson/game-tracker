@@ -6,10 +6,7 @@ import "./Navigation.css";
 
 function Navigation() {
 
-  const handleSteamLogin = () => {
-    window.location.href = "/api/auth/steam-login";
 
-  };
 
 
   return (
@@ -32,9 +29,7 @@ function Navigation() {
         <SearchBar />
       </div> */}
 
-    <button onClick={handleSteamLogin} className="steam-login-button">
-      Login with Steam
-    </button>
+
 
 
       {/* Navigation Actions */}

@@ -35,7 +35,6 @@ function LoginFormModal() {
     password: "password",
   };
 
-  
 
   const handleDemoLogin = (e) => {
     e.preventDefault();
@@ -49,6 +48,11 @@ function LoginFormModal() {
       .catch((error) => {
         console.error("Login failed", error); // Handle error if login fails
       });
+  };
+
+  const handleSteamLogin = () => {
+    window.location.href = "/api/auth/steam-login";
+
   };
 
 
@@ -81,6 +85,10 @@ function LoginFormModal() {
       
       {/* Demo User Login Button */}
       <button onClick={handleDemoLogin}>Log in as Demo User</button>
+
+    <button onClick={handleSteamLogin} className="steam-login-button">
+      Login with Steam
+    </button>
 
     </>
   );

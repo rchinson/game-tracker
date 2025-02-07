@@ -55,7 +55,7 @@ def steam_callback():
     if not user:
         user = User(
             username=steam_user_data["personaname"],
-            email=f"steam_{steam_id}@steam.com",  # Dummy email, Steam does not provide email
+            email=f"steam_{steam_id}@steam.com",
             password = generate_password_hash(f'{steam_id}'),
             avatar=steam_user_data["avatarfull"],
             steam_id=steam_id
@@ -66,7 +66,7 @@ def steam_callback():
     # Log the user in
     login_user(user)
 
-    return redirect(url_for("auth.authenticate"))
+    return redirect('/')
 
 def get_steam_user_data(steam_id):
     """ Fetches user data from Steam API """
