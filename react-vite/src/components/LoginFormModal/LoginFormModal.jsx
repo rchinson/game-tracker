@@ -84,7 +84,7 @@ function LoginFormModal() {
       </form>
       
       {/* Demo User Login Button */}
-      <button onClick={handleDemoLogin}>Log in as Demo User</button>
+      <button onClick={handleDemoLogin} className="demo-login-button">Log in as Demo User</button>
 
     <button onClick={handleSteamLogin} className="steam-login-button">
       Login with Steam
