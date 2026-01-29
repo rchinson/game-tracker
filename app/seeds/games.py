@@ -22,7 +22,7 @@ def seed_games():
     )
     game3 = Game(
         title='Rocket League',
-        image='https://www.rocketleague.com/images/keyart/rl_evergreen.jpg',
+        image='https://wallpapercave.com/wp/wp8131194.jpg',
         description='Fly through the air to score more goals than your opponent!',
         genre='Sports',
         platform='PC',

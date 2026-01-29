@@ -31,13 +31,13 @@ def seed_screenshots():
     screenshot5 = Screenshot(
         user_id=2,
         game_id=1,
-        image_url = 'https://pm1.aminoapps.com/7528/78a88f607fe8a1035698e0b7f13b2629f21beb9er1-1280-720v2_hq.jpg',
+        image_url = 'https://i.ytimg.com/vi/ZMHY1ZDl0AU/maxresdefault.jpg',
         description='Playing in a squad',
     )
     screenshot6 = Screenshot(
         user_id=1,
         game_id=2,
-        image_url = 'https://www.newgamenetwork.com/images/uploads/gallery/Minecraft/minecraft_05.jpg',
+        image_url = 'https://www.newgamenetwork.com/app/uploads/2025/10/minecraft_05_3.jpg',
         description='Lots of torches',
     )
     screenshot7 = Screenshot(
